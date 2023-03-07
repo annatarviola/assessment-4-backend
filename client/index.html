@@ -5,7 +5,32 @@
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
+    <button id="fortuneButton">Get a fortune</button>
 
+    <div class="studyPlaylist">
+      <h3>Keep Track of your favorite Study Playlists</h3>
+      <form>
+        <input
+          type="text"
+          id="playlistTitle"
+          placeholder="Playlist Name"/>
+        <label for="energy">What is your playlist's energy level?</label>
+        <select name="energy" id="energy">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input
+          type="text"
+          id="link"
+          placeholder="Playlist URL"/>
+        <button id="addPlaylist">add playlist</button>
+        <button id="showPlaylists">show playlists</button>
+      </form>
+    </div>
+
+    <section id="playlist-display"></section>
+   
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     
