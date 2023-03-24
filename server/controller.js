@@ -1,13 +1,5 @@
-const playlists = [
-    {
-        "id": 1,
-        "name": "Castlevania Lo-fi",
-        "energy": "medium",
-        "url": "https://www.youtube.com/watch?v=kdA_3sk4tKU"
-    }
-]
-
-let globalId = 2;
+const tracks = []
+let globalId = 1
 
 module.exports = {
 
@@ -29,35 +21,46 @@ module.exports = {
             "Do not make extra work for yourself.", 
             "Your first love has never forgotten you."
         ];
-      
-        // choose random fortune
+
         let randomIndex = Math.floor(Math.random() * fortunes.length);
         let randomFortune = fortunes[randomIndex];
-      
-        res.status(200).send(randomFortune);
-    },
-    
-    // Playlist:
 
-    getPlaylist: (req, res) => res.status(200).send(playlists),
-
-    deletePlaylist: (req, res) => {
-        let index = playlists.findIndex(elem => elem.id === +req.params.id)
-        playlists.splice(index, 1)
-        res.status(200).send(playlists)
+        res.status(200).send(randomFortune)
     },
 
-    createPlaylist: (req, res) => {
-        let { name, energy, url } = req.body
-        let newPlaylist = {
+    getTracks: (req, res) => res.status(200).send(tracks),
+
+    createTrack: (req, res) => {
+        let { link } = req.body;
+        let newTrack = {
             id: globalId,
-            name,
-            energy,
-            url
+            link
         }
-        playlists.push(newPlaylist)
-        res.status(200).send(playlists)
+
+        tracks.push(newTrack);
+        res.status(200).send(tracks);
         globalId++
     },
+
+    updateURL: (req, res) => {
+        let { id } = req.params;
+        let { newLink } = req.body;
+        let index = tracks.findIndex(elem => elem.id === +req.params.id)
+
+        for (let i = 0; i < tracks.length; i++) {
+            if (tracks[i].id === index) {
+                tracks[i].link = newLink
+                res.status(200).send(tracks)
+            }
+        }
+        console.log('sohsdjkf')
+    },
+    
+
+    deleteTrack: (req, res) => {
+        let index = tracks.findIndex(elem => elem.id === +req.params.id)
+        tracks.splice(index, 1)
+        res.status(200).send(tracks)
+    }
 
 }

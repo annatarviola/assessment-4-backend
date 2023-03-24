@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Back End Assessment</title>
-  </head>
-  <body class="container">
-    <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton">Get a fortune</button>
 
-    <div class="studyPlaylist">
-      <h3>Keep Track of your favorite Study Playlists</h3>
-      <form>
-        <input
-          type="text"
-          id="playlistTitle"
-          placeholder="Playlist Name"/>
-        <label for="energy">What is your playlist's energy level?</label>
-        <select name="energy" id="energy">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-        <input
-          type="text"
-          id="link"
-          placeholder="Playlist URL"/>
-        <button id="addPlaylist">add playlist</button>
-        <button id="showPlaylists">show playlists</button>
-      </form>
-    </div>
+<head>
+  <title>Back End Assessment</title>
+</head>
 
-    <section id="playlist-display"></section>
-   
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="main.js"></script>
-    
-  </body>
+<body class="container">
+  <button id="complimentButton">Get a compliment</button>
+  <button id="fortuneButton">Get a fortune</button>
+  <p></p>
+
+  <h3>Add your favorite study soundtracks from YouTube below!</h3>
+  <p><em>make sure you use format "https://www.youtube.com/watch?v=&lt;VIDEOID&gt;" because that's all I could figure out the code for for now :,&#41;</em></p>
+  <form>
+    <input type="text" id="link" placeholder="YouTube URL" />
+    <button id="addTrack">add track</button>
+  </form>
+
+  <section id="track-container"></section>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
+
+</body>
+
 </html>
