@@ -40,6 +40,7 @@ module.exports = {
         tracks.push(newTrack);
         res.status(200).send(tracks);
         globalId++
+        console.log(tracks)
     },
 
     updateURL: (req, res) => {
@@ -47,13 +48,13 @@ module.exports = {
         let { newLink } = req.body;
         let index = tracks.findIndex(elem => elem.id === +req.params.id)
 
-        for (let i = 0; i < tracks.length; i++) {
-            if (tracks[i].id === index) {
-                tracks[i].link = newLink
+        //for (let i = 0; i < tracks.length; i++) {
+            if (tracks.id === index) {
+                tracks.link = newLink
                 res.status(200).send(tracks)
+                console.log(tracks[i])
             }
-        }
-        console.log('sohsdjkf')
+        //}
     },
     
 
